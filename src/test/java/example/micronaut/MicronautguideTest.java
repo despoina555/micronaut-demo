@@ -36,7 +36,7 @@ class MicronautguideTest {
 
     @Test
     public void testHello() {
-        HttpRequest<String> request = HttpRequest.GET("/cars/500?taxhp=10");
+        HttpRequest<String> request = HttpRequest.GET("/cars/params?model=500&taxhp=10");
         String body = client.toBlocking().retrieve(request);
 
         GreekCars car = null;
