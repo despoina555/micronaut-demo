@@ -6,18 +6,20 @@
 </head>
 <body>
 <section>
-  <h1>Greek Cars Repo</h1>
+    <h2>Hey fantastic user!</h2>
+    <h3 th:if="${date}">Current date is:  <span th:text="${date}"></span></h3>
+    <h3 th:if="${count}">From <span th:text="${count}"></span> cars in our database, find yous!</h3>
 
-    <h3 th:if="${count}">Total entries in database: <span th:text="${count}"></span></h3>
-    <h3 th:if="${date}">Current date: <span th:text="${date}"></span></h3>
 
-    <h3>Input your query params</h3>
+    <h3>Search criteria</h3>
     <form method="get" th:action="@{/cars/params}">
         <input name="model" placeholder=" Car Model" required type="text" th:field="*{model}"/>
         <input name="taxhp" placeholder=" TaxHp" required type="text" th:field="*{taxhp}"/>
         </div>
-        <input type="submit" value="Find your Car">
+        <input type="submit" value="Find Car Details">
     </form>
+
+
 
 </section>
 </body>
