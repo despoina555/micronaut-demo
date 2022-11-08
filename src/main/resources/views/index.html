@@ -1,25 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{layoutFile :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hello Micronaut!</title>
+    <title>Micro</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"/>
 </head>
 <body>
 <section>
-    <h2>Hey fantastic user!</h2>
-    <h3 th:if="${date}">Current date is:  <span th:text="${date}"></span></h3>
-    <h3 th:if="${count}">From <span th:text="${count}"></span> cars in our database, find yous!</h3>
 
-
-    <h3>Search criteria</h3>
-    <form method="get" th:action="@{/cars/params}">
-        <input name="model" placeholder=" Car Model" required type="text" th:field="*{model}"/>
-        <input name="taxhp" placeholder=" TaxHp" required type="text" th:field="*{taxhp}"/>
-        </div>
-        <input type="submit" value="Find Car Details">
-    </form>
-
-
+    <div class="pb">
+        <label>Car's Main View</label>
+        <a href="/cars">
+            <button class="homeBtn">Go</button>
+        </a>
+    </div>
 
 </section>
 </body>

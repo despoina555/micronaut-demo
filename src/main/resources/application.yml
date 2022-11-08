@@ -8,6 +8,15 @@ micronaut:
         enabled: true
         step: PT1M
         descriptions: true
+  views:
+    thymeleaf:
+      character-encoding: 'UTF-8'
+  router:
+    static-resources:
+      default:
+        enabled: true
+        mapping: "/assets/**"
+        paths: "classpath:assets"
 endpoints:
   prometheus:
     sensitive: false
@@ -17,5 +26,7 @@ datasources:
     username: ${JDBC_USER:admin}
     password: ${JDBC_PASSWORD:admin}
     driverClassName: ${JDBC_DRIVER:org.postgresql.Driver}
-
-
+api:
+  key: "<YOUR API KEY>"
+  currencies:
+    rates: "https://investing-cryptocurrency-markets.p.rapidapi.com/currencies/get-rate"

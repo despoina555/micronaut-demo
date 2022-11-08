@@ -1,4 +1,4 @@
-package example.micronaut.domain;
+package example.micronaut.car.domain;
 
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.data.annotation.Id;

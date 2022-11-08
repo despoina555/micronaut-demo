@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html th:fragment="layout (title, content)" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title th:replace="${title}">Layout Title</title>
+    <title>Micro</title>
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/assets/style.css}"/>
 </head>
 <body>
-<h1>Demo</h1>
 <div th:replace="${content}">
     <p>Layout content</p>
 </div>

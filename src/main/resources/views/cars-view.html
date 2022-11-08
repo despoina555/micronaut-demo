@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layoutFile :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Micro</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"/>
+</head>
+<body>
+<section>
+
+    <div class="pb">
+        <a href="/">
+            <button class="homeBtn">Back 2 Main View</button>
+        </a>
+    </div>
+
+
+    <div class="pb">
+        <h2 th:if="${count}">From <span th:text="${count}"></span> cars in our database, find yous!</h2>
+        <h2>Search</h2>
+        <form method="get" th:action="@{/cars/params}">
+            <input name="make" placeholder=" Car Make" required type="text" th:field="*{make}"/>
+            <input name="model" placeholder=" Model" required type="text" th:field="*{model}"/>
+            <input type="submit" value="Find Car Details">
+        </form>
+    </div>
+
+    <div th:if="${car}">
+        <div class="table-container">
+            <table class="main-table">
+                <thead>
+                <tr class="headings-row">
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>CC</th>
+                    <th>Doors</th>
+                    <th>Version Name</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="car: ${cars}">
+                <tr class="details-row">
+                    <td th:text="${car.make}"/>
+                    <td th:text="${car.model}"/>
+                    <td th:text="${car.cc}"/>
+                    <td th:text="${car.doors}"/>
+                    <td th:text="${car.versionName}"/>
+                </tr>
+                </g:each>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>
