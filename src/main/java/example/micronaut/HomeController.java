@@ -35,9 +35,19 @@ public class HomeController {
         return new ModelAndView("index", model);
     }
 
+    @Get("/currencies")
+    ModelAndView compareCurrenciesView() {
+        return new ModelAndView("compare-currencies", null);
+    }
+
     @Get("/currencies/best-rate")
-    public String getRates(@NotNull @QueryValue int coin) {
-        return currencyService.getBestRate(coin);
+    public ModelAndView getRates(@NotNull @QueryValue int coin) {
+        String currencyToBuy = currencyService.getBestRate(coin);
+
+        final Map<String, Object> model = new HashMap<>();
+        model.put("currency", currencyToBuy);
+
+        return new ModelAndView("compare-currencies", model);
     }
 
 }

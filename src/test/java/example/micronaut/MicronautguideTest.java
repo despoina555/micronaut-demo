@@ -2,9 +2,6 @@ package example.micronaut;
 
 import example.micronaut.car.CarService;
 import example.micronaut.car.domain.GreekCars;
-import io.micronaut.http.HttpRequest;
-import io.micronaut.http.client.HttpClient;
-import io.micronaut.http.client.annotation.Client;
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
@@ -23,11 +20,9 @@ class MicronautguideTest {
     EmbeddedApplication<?> application;
 
     @Inject
-    @Client("/")
-    private HttpClient client;
-
-    @Inject
     private CarService carService;
+    @Inject
+    private CurrencyService currencyService;
 
     @Test
     void testItWorks() {
@@ -44,6 +39,7 @@ class MicronautguideTest {
 
         Optional<GreekCars> c = carService.getLatestModel(make, model);
         GreekCars car = c.get();
+        System.out.println("Car" + c.toString());
 
         assertNotNull(car);
         assertEquals(model, car.getModel());
@@ -51,17 +47,12 @@ class MicronautguideTest {
 
     @Test
     public void testGetRates() {
-        try {
-            HttpRequest<String> request = HttpRequest.GET("/currencies/best-rate?coin=189");
-            String body = client.toBlocking().retrieve(request);
+        int coin = 189;
+        String currencyToBuy = currencyService.getBestRate(coin);
+        System.out.println("Buy currency=" + currencyToBuy);
 
-            String rate = body;
-            System.out.println("Rate=" + rate);
+        assertNotNull(currencyToBuy);
 
-            assertNotNull(rate);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 

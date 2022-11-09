@@ -12,6 +12,7 @@ import java.math.BigInteger;
 @Setter
 @Introspected
 @MappedEntity
+@ToString
 public class GreekCars{
     @Id
     BigInteger id;
