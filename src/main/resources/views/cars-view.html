@@ -25,7 +25,14 @@
         </form>
     </div>
 
-    <div th:if="${car}">
+    <div class="pb">
+        <h2>Search</h2>
+        <form method="get" th:action="@{/cars/list}">
+            <input type="submit" value="Get all Cars">
+        </form>
+    </div>
+
+    <div id="result" th:if="${result == true}">
         <div class="table-container">
             <table class="main-table">
                 <thead>
@@ -38,19 +45,23 @@
                 </tr>
                 </thead>
                 <tbody>
-
-                <tr th:each="car: ${cars}">
-                <tr class="details-row">
+                <tr th:each="car : ${cars}" class="details-row">
                     <td th:text="${car.make}"/>
                     <td th:text="${car.model}"/>
                     <td th:text="${car.cc}"/>
                     <td th:text="${car.doors}"/>
                     <td th:text="${car.versionName}"/>
                 </tr>
-                </g:each>
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <div th:if="${pager}" class="pagination"
+         th:each="page : ${pager}">
+        <a th:href="@{/cars/list(page=${page})}"
+           th:text=${page}
+           th:class="${page==current} ? active"></a>
     </div>
 
 </section>
