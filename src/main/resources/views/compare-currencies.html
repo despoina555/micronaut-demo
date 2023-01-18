@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layoutFile :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <title>Micro</title>
+</head>
+<body>
+<section>
+
+    <div class="pb">
+        <a href="/">
+            <button class="homeBtn">Back 2 Main View</button>
+        </a>
+    </div>
+
+    <h2>Buy the Currency with best rate (EUR or CHF)</h2>
+    <div class="pb">
+        <form method="get" th:action="@{/currencies/best-rate}">
+
+            <div class="input-form">
+                <label for="coin">From Coin</label>
+                <select id="coin" name="coin">
+                    <option type="number" value="189" selected>BTC</option>
+                    <option type="number" value="195">ETH</option>
+                </select>
+            </div>
+            <input type="submit" value="Get">
+        </form>
+    </div>
+
+    <div th:if="${currency}">
+        <p>Buy: <span type="text" th:text="${currency}"/></p>
+    </div>
+
+
+</section>
+</body>
+</html>

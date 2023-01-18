@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{layoutFile :: layout(~{::title}, ~{::section})}" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hello Micronaut!</title>
+    <title>Micro</title>
+    <link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"/>
 </head>
 <body>
 <section>
-    <h2>Hey fantastic user!</h2>
-    <h3 th:if="${date}">Current date is:  <span th:text="${date}"></span></h3>
-    <h3 th:if="${count}">From <span th:text="${count}"></span> cars in our database, find yous!</h3>
+
+    <h2> Hi visitor. </h2>
+    <h1> You can find your car details or if you want to shell, find the currency with lower rate to shell</h1>
+
+    <div class="pb">
+        <a href="/cars">
+            <button class="homeBtn">Redirect to Car Service</button>
+        </a>
+    </div>
+
+    <br>
 
 
-    <h3>Search criteria</h3>
-    <form method="get" th:action="@{/cars/params}">
-        <input name="model" placeholder=" Car Model" required type="text" th:field="*{model}"/>
-        <input name="taxhp" placeholder=" TaxHp" required type="text" th:field="*{taxhp}"/>
-        </div>
-        <input type="submit" value="Find Car Details">
-    </form>
-
+    <h1>Shell your crypto</h1>
+    <div class="pb">
+        <a href="/currencies">
+            <button class="homeBtn">Redirect to Currencies</button>
+        </a>
+    </div>
 
 
 </section>

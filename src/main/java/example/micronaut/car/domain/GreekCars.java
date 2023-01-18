@@ -1,4 +1,4 @@
-package example.micronaut.domain;
+package example.micronaut.car.domain;
 
 import io.micronaut.core.annotation.Introspected;
 import io.micronaut.data.annotation.Id;
@@ -12,6 +12,7 @@ import java.math.BigInteger;
 @Setter
 @Introspected
 @MappedEntity
+@ToString
 public class GreekCars{
     @Id
     BigInteger id;
