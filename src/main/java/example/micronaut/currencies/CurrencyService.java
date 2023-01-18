@@ -1,10 +1,9 @@
-package example.micronaut;
+package example.micronaut.currencies;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
-import io.micronaut.context.annotation.Prototype;
 import io.micronaut.context.annotation.Value;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;

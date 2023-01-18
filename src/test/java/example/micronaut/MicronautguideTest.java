@@ -2,6 +2,7 @@ package example.micronaut;
 
 import example.micronaut.car.CarService;
 import example.micronaut.car.domain.GreekCars;
+import example.micronaut.currencies.CurrencyService;
 import io.micronaut.runtime.EmbeddedApplication;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import org.junit.jupiter.api.Test;
