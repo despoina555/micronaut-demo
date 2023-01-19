@@ -17,10 +17,12 @@ import java.util.Map;
 @Controller("/currencies")
 public class CurrenciesController {
 
-
-    @Inject
     CurrencyService currencyService;
 
+    @Inject
+    void populateCurrencyService(CurrencyService currencyService) {
+        this.currencyService = currencyService;
+    }
 
     @Get("/")
     ModelAndView index() {

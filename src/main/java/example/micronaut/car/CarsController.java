@@ -25,9 +25,15 @@ public class CarsController {
 
     private static final int RESULTS_PER_PAGE = 50;
 
-    @Inject
     private CarService carService;
 
+    /**
+     * use constructor injection
+     */
+    @Inject
+    void populateCarService(CarService carService) {
+        this.carService = carService;
+    }
 
     /**
      * Run on Browser:  http://localhost:8080/cars/
